@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: GateWay
+
+  cloud:
+    gateway:
+      server:
+        webflux:
+          routes:
+            - id: camera-service
+              uri: http://localhost:9091
+              predicates:
+                - Path=/api/cameras/**
+            - id: object-home
+              uri : http://localhost:9092
+              predicates:
+                - Path=/api/objects/**
+
+
+
+
